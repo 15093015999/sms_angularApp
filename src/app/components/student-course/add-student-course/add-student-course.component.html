@@ -1,0 +1,51 @@
+<form [formGroup]="addressForm" novalidate (ngSubmit)="onSubmit()">
+  <mat-card class="shipping-card">
+    <mat-card-header>
+      <mat-card-title>Add StudentCourse</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+
+      <div class="row">
+        <mat-form-field class="full-width">
+          <input matInput placeholder="grade" formControlName="grade">
+          <mat-error *ngIf="addressForm.controls['grade'].hasError('required')">
+            grade is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+      <div class="row">
+        <mat-form-field class="full-width">
+          <mat-label>Student</mat-label>
+          <mat-select placeholder="Student_id" formControlName="student_id">
+            <mat-option *ngFor="let item of students" [value]="item.id">
+              {{item.realname}}
+            </mat-option>
+          </mat-select>
+          <mat-error *ngIf="addressForm.controls['student_id'].hasError('required')">
+            Student is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+      <div class="row">
+        <mat-form-field class="full-width">
+            <mat-label>Course</mat-label>
+            <mat-select placeholder="Course_id" formControlName="course_id">
+              <mat-option *ngFor="let item of courses" [value]="item.id">
+                {{item.name}}
+              </mat-option>
+            </mat-select>
+            <mat-error *ngIf="addressForm.controls['course_id'].hasError('required')">
+                Course is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+      </div>
+
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button color="primary" type="submit">Submit</button>
+      <button mat-raised-button color="primary" [routerLink]="['/StudentCourseTable']">Back</button>
+    </mat-card-actions>
+  </mat-card>
+</form>

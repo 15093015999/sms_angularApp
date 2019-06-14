@@ -1,0 +1,36 @@
+.sidenav-container {
+  height: 100%;
+  overflow-x:hidden
+}
+
+.sidenav {
+  width: 200px;
+}
+
+.sidenav .mat-toolbar {
+  background: inherit;
+}
+
+.mat-toolbar.mat-primary {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+.mat-toolbar{
+  color: #fff;
+}
+.mat-sidenav{
+  // background-color:#555555;
+  background: rgba($color: #666666, $alpha: 0.5)
+}
+.mat-list-item{
+  color: #673ab7;
+}
+.active{
+  background-color: #673ab7;
+  color: #fff;
+}
+
+.mat-drawer-content{
+  overflow: hidden;
+}

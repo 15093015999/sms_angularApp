@@ -1,0 +1,43 @@
+<h1 mat-dialog-title>Update User</h1>
+<div mat-dialog-content>
+  <form class="example-form" [formGroup]="addressForm" novalidate (ngSubmit)="onSubmit()">
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="Realname" [value]="data.user.realname" formControlName="realname">
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <mat-label>Gender</mat-label>
+      <mat-select formControlName="gender" [value]="data.user.gender">
+        <mat-option *ngFor="let item of genders" [value]="item.value">
+          {{item.value}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="Password" [value]="data.user.password" formControlName="password">
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="Telephone" [value]="data.user.telephone" formControlName="telephone">
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <mat-label>Type</mat-label>
+      <mat-select formControlName="type" [value]="data.user.type">
+        <mat-option *ngFor="let item of types" [value]="item.value">
+          {{item.value}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="Status" [value]="data.user.status" formControlName="status">
+    </mat-form-field>
+
+    <mat-dialog-actions>
+      <button mat-button mat-dialog-close>Cancel</button>
+      <button mat-button type="submit">Ok</button>
+    </mat-dialog-actions>
+  </form>
+
+</div>

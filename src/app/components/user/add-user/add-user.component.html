@@ -1,0 +1,69 @@
+<form [formGroup]="addressForm" novalidate (ngSubmit)="onSubmit()">
+  <mat-card class="shipping-card">
+    <mat-card-header>
+      <mat-card-title>Add User</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+
+      <div class="row">
+        <mat-form-field class="full-width">
+          <input matInput placeholder="RealName" formControlName="realname">
+          <mat-error *ngIf="addressForm.controls['realname'].hasError('required')">
+            RealName is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+      <div class="row">
+        <mat-form-field class="full-width">
+          <mat-label>Gender</mat-label>
+          <mat-select  placeholder="gender" formControlName="gender">
+            <mat-option *ngFor="let item of genders" [value]="item.value">
+              {{item.value}}
+            </mat-option>
+          </mat-select>
+          <mat-error *ngIf="addressForm.controls['type'].hasError('required')">
+            Gender is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <div class="row">
+
+        <mat-form-field class="full-width">
+          <input matInput placeholder="Password" formControlName="password">
+          <mat-error *ngIf="addressForm.controls['password'].hasError('required')">
+            Password is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+      <div class="row">
+        <mat-form-field class="full-width">
+          <input matInput placeholder="Telephone" formControlName="telephone">
+          <mat-error *ngIf="addressForm.controls['telephone'].hasError('required')">
+            Telephone is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+      <div class="row">
+        <mat-form-field class="full-width">
+          <mat-label>Type</mat-label>
+          <mat-select  placeholder="Type" formControlName="type">
+            <mat-option *ngFor="let item of types" [value]="item.value">
+              {{item.value}}
+            </mat-option>
+          </mat-select>
+          <mat-error *ngIf="addressForm.controls['type'].hasError('required')">
+            Type is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+      </div>
+      
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button color="primary" type="submit">Submit</button>
+      <button mat-raised-button color="primary" [routerLink]="['/Table']">Back</button>
+    </mat-card-actions>
+  </mat-card>
+</form>

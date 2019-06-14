@@ -1,0 +1,50 @@
+<form [formGroup]="addressForm" novalidate (ngSubmit)="onSubmit()">
+  <mat-card class="shipping-card">
+    <mat-card-header>
+      <mat-card-title>Add Course</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <div class="row">
+        <mat-form-field class="full-width">
+          <input matInput placeholder="Name" formControlName="name">
+          <mat-error *ngIf="addressForm.controls['name'].hasError('required')">
+            Name is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <div class="row">
+        <mat-form-field class="full-width">
+          <input matInput placeholder="Description" formControlName="description">
+          <mat-error *ngIf="addressForm.controls['description'].hasError('required')">
+            Description is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <div class="row">
+        <mat-form-field class="full-width">
+          <input matInput placeholder="Credit" formControlName="credit">
+          <mat-error *ngIf="addressForm.controls['credit'].hasError('required')">
+            Credit is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <div class="row">
+        <mat-form-field class="full-width">
+          <mat-label>Teacher</mat-label>
+          <mat-select  placeholder="Teacher_id" formControlName="teacher_id">
+            <mat-option *ngFor="let item of teachers" [value]="item.id">
+              {{item.realname}}
+            </mat-option>
+          </mat-select>
+          <mat-error *ngIf="addressForm.controls['teacher_id'].hasError('required')">
+            Teacher is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+      </div>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button color="primary" type="submit">Submit</button>
+      <button mat-raised-button color="primary" [routerLink]="['/CourseTable']">Back</button>
+    </mat-card-actions>
+  </mat-card>
+</form>

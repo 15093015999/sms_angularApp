@@ -1,0 +1,37 @@
+<h1 mat-dialog-title>Update StudentCourse</h1>
+<div mat-dialog-content>
+  <form class="example-form" [formGroup]="addressForm" novalidate (ngSubmit)="onSubmit()">
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="Grade" [value]="data.studentCourse.grade" formControlName="grade">
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <mat-label>Student</mat-label>
+      <mat-select formControlName="student_id" [value]="data.studentCourse.student.id">
+        <mat-option *ngFor="let item of students" [value]="item.id">
+          {{item.realname}}
+        </mat-option>
+      </mat-select>
+      <mat-error *ngIf="addressForm.controls['student_id'].hasError('required')">
+        Student is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <mat-label>Course</mat-label>
+      <mat-select formControlName="course_id" [value]="data.studentCourse.course.id">
+        <mat-option *ngFor="let item of courses" [value]="item.id">
+          {{item.name}}
+        </mat-option>
+      </mat-select>
+      <mat-error *ngIf="addressForm.controls['course_id'].hasError('required')">
+        Course is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+
+    <mat-dialog-actions>
+      <button mat-button mat-dialog-close>Cancel</button>
+      <button mat-button type="submit">Ok</button>
+    </mat-dialog-actions>
+  </form>
+
+</div>
