@@ -26,6 +26,9 @@ import { AddStudentCourseComponent } from './components/student-course/add-stude
 import { UpdateStudentCourseComponent } from './components/student-course/update-student-course/update-student-course.component';
 import { DetailCourseComponent } from './components/course/detail-course/detail-course.component';
 import { DetailUserComponent } from './components/user/detail-user/detail-user.component';
+import { CourseService } from './services/course.service';
+import { StudentCourseService } from './services/student-course.service';
+import { UserService } from './services/user.service';
 
 @NgModule({
   declarations: [
@@ -73,7 +76,11 @@ import { DetailUserComponent } from './components/user/detail-user/detail-user.c
     UpdateCourseComponent,
     UpdateStudentCourseComponent
   ],
-  providers: [],
+  providers: [
+    UserService,
+    CourseService,
+    StudentCourseService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
